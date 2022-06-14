@@ -1,0 +1,41 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: row-reverse;
+}
+
+.button #increment-button {
+    border-radius: 50%;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 12px;
+    border: 1px solid pink;
+    background-color: palevioletred;
+    justify-content: center;
+}
+
+.button #decrement-button {
+    border-radius: 50%;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 12px;
+    border: 1px solid pink;
+    background-color: palevioletred;
+    justify-content: center;
+}
+
+.button span {
+    font-size: 22px;
+    margin: 8px;
+    display: flex;
+    color: white;
+}

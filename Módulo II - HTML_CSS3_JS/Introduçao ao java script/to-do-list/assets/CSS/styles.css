@@ -1,0 +1,82 @@
+body {
+display: flex;
+flex-direction: column;
+background-color: #f3f3f3f3;
+align-items: center;
+justify-content: center;
+}
+
+h1 {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.task-container {
+  display: flex;
+  justify-content: start;
+  align-content: flex-start;
+  align-items:  flex-start;
+  text-align: left;
+  flex-direction: column;
+  width: 264px;
+}
+
+.task-input {
+  border-radius: 10px;
+  padding: 8px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.task-input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.task-button {
+  border-radius: 10px;
+  padding: 8px;
+  margin: 5px;
+  background-color: rgb(70, 94, 249);
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.task-area {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  align-content: flex-start;
+  text-align: left;
+  flex-direction: column;
+  margin: 5px;
+  padding: 8px;
+  width: 100%;
+}
+
+.task-area input {
+  text-align: start;
+  align-content: flex-start;
+  justify-content: left;
+}
+
+:checked + label{
+  text-decoration: line-through;
+  color:red;
+}
+
+.task-delete{
+  border:none;
+  float:right;
+  background-color: transparent;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10%;
+  margin-left: auto;
+}
+
+.task-div{
+  display: flex;
+  width: 100%;
+  align-items: center;
+}

@@ -9,4 +9,4 @@ function findMaximunNumberValue() {
     return max;
 }
 
-console.log(findMaximunNumberValue(1, 2, 3, 6, 90, 1))
+console.log(findMaximunNumberValue(1, 2, 3, 6, 90, 1)) // 90

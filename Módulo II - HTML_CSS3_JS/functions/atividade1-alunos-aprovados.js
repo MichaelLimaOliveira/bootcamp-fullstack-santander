@@ -26,7 +26,7 @@ function studentsInSchool(array, schoolAverage){
     let approvedStudents = [];
     
     for (let i = 0; i < array.length; i++) {
-        const {note, name} = array[i]
+        const {note, name} = array[i] // object destructring
         if(note >= schoolAverage){
             approvedStudents.push(name)
         }

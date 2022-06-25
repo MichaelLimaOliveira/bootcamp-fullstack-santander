@@ -7,17 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <main>
-        <header>
-            <h1 id="meu-elemento" class="classe">Texte Style</h1>
-        </header>
-        <section>
+    <h1 onclick="mudaTexto(this)">Click aqui!</h1>
 
-        </section>
-        <footer>
-            
-        </footer>
-    </main>
-    <script src="main.js"></script>
+    <script>
+        function mudaTexto(id) {
+            id.innerHTML = 'Mudei!';
+        }
+    </script>
 </body>
 </html>

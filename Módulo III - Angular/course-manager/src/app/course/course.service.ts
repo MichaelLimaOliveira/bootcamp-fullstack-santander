@@ -10,6 +10,19 @@ export class CourseService {
         return COURSES;
     }
 
+    retriveById(id: number): Course {
+        let course = COURSES.find((courseItereator: Course) => courseItereator.id === id)
+        if(course === undefined) throw new Error(`Curso nao encontrado. id: ${id}`)
+        return course;
+    }
+
+    save(course: Course): void {
+        if(course.id) {
+            const index = COURSES.findIndex((courseIterator: Course) => courseIterator.id === course.id)
+            COURSES[index] = course;
+        }
+    }
+
 }
 
 var COURSES: Course[] = [

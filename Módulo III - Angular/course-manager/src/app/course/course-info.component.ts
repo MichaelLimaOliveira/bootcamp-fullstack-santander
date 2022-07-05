@@ -7,7 +7,7 @@ import { CourseService } from "./course.service";
     templateUrl: './course-info.component.html'
 })
 export class CourseInfoComponent implements OnInit {
-    
+
     course: Course;
 
     constructor(private activatedRoute: ActivatedRoute, private courseService: CourseService, private router: Router) {
@@ -23,17 +23,17 @@ export class CourseInfoComponent implements OnInit {
             imageUrl: ""
         }
     }
-    
-    ngOnInit(): void {  
-        try {
-            this.course = this.courseService.retriveById(+this.activatedRoute.snapshot.paramMap.get('id')!);
-            
-        } catch (error) {
-            this.router.navigate(['/nao-encontrado'])
+
+    async ngOnInit(): Promise<void> {
+        let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+        if(id){
+            this.course = await this.courseService.retrieveById(+id);
         }
     }
-    
-    save(): void {
-        this.courseService.save(this.course)
+
+    async update(): Promise<Course> {
+       let saveId =  this.courseService.update(this.course)
+       return saveId
     }
 }

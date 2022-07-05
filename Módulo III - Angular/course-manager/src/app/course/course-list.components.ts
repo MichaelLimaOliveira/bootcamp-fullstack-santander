@@ -15,9 +15,14 @@ export class CourseListComponent implements OnInit {
     _filterBy: string = '';
 
     constructor(private courseService: CourseService) { }
-    ngOnInit(): void {
-        this._courses = this.courseService.retriveAll();
-        this.filteredCourses = this._courses;
+    async ngOnInit(): Promise<void> {
+        this._courses = await this.courseService.retriveAll();
+        this.filteredCourses = this._courses
+    }
+
+   async deleteById(courseId: number): Promise<void> {
+       await this.courseService.deleteById(courseId);
+       await this.ngOnInit();
     }
 
     set filter(value: string) {

@@ -13,8 +13,8 @@ export class MarcaTextoDirective implements OnInit {
     this.changeBackground();
   }
 
-  private changeBackground(cor: string = 'yellow') {
-    this._element.nativeElement.style.backgroundColor = this.backgroundColor || cor;
+  private changeBackground() {
+    this._element.nativeElement.style.backgroundColor = this.backgroundColor;
     this._element.nativeElement.style.color = this.textColor;
     this._element.nativeElement.style.fontWeight = 'bold';
   }

@@ -1,0 +1,5 @@
+<ul class="list-group mx-auto my-3 col-3">
+	<ng-template ngFor let-animal [ngForOf]="animais">
+		<li class="list-group-item">O Nome do animal é {{ animal.name }} e sua raça é {{ animal.race }}</li>
+	</ng-template>
+</ul>

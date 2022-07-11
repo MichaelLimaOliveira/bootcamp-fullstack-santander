@@ -1,0 +1,51 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+
+import { UserService } from 'src/app/services/user.service';
+
+@Component({
+  selector: 'app-user-form',
+  templateUrl: './user-form.component.html',
+  styleUrls: ['./user-form.component.css'],
+})
+export class UserFormComponent implements OnInit {
+  userForm: FormGroup;
+  users: Array<User> = [];
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
+    this.userForm = this.formBuilder.group({
+      id: 0,
+      firstName: '',
+      lastName: '',
+      age: 0,
+      ocupation: '',
+    });
+  }
+
+  ngOnInit(): void {
+    this.returnUsers();
+  }
+
+  returnUsers() {
+    this.userService.getUsers().subscribe(response => {
+      this.users = response;
+    })
+  }
+
+  createUser() {
+    this.userForm.get('id')?.patchValue(this.users.length + 1);
+    this.userService.postUser(this.userForm.value).subscribe(result => {
+      console.log('Usuario cadastrado com sucesso')
+    });
+  }
+
+  actionButton() {
+    
+  }
+}

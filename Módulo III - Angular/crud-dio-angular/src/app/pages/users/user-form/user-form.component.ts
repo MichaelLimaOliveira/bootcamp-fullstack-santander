@@ -13,6 +13,8 @@ import { UserService } from 'src/app/services/user.service';
 export class UserFormComponent implements OnInit {
   userForm: FormGroup;
   users: Array<User> = [];
+  userId: any = '';
+
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
@@ -29,6 +31,20 @@ export class UserFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.userId = params.get('id');
+      if(this.userId !== null) {
+        this.userService.getUser(this.userId).subscribe(result => {
+          this.userForm.patchValue({
+            id: result[0].id,
+            firstName: result[0].firstName,
+            lastName: result[0].lastName,
+            age: result[0].age,
+            ocupation: result[0].ocupation,
+          })
+        })
+      }
+    })
     this.returnUsers();
   }
 
@@ -45,7 +61,21 @@ export class UserFormComponent implements OnInit {
     });
   }
 
+  updateUser() {
+    this.userService.updateUser(this.userId, this.userForm.value).subscribe(result => {
+      console.log('Usuario atualizado', result);
+    }, (err) => {
+
+    }, () => {
+      this.router.navigate(['/']);
+    })
+  }
+
   actionButton() {
-    
+    if(this.userId !== null) {
+      this.updateUser();
+    }else {
+      this.createUser();
+    }
   }
 }

@@ -1,0 +1,21 @@
+<h1 [class.text-red]="textRed" [style.fon-size]="fontSize">O nome é {{ returnName() }}</h1>
+
+<img [src]="imageUrl" [alt]="imageDescription" [style.width.px]="widthImg">
+
+<button [attr.aria-label]="buttonText" [style.background-color]="backgroundColor"> {{buttonText}} </button>
+
+<button (click)="click('laravel')" [style.background-color]="backgroundColor">Clique</button>
+
+<input #input (keyup)="click(input.value)">
+
+{{ input.value }}
+
+<input type="text" class="form-control" [(ngModel)]="textInput">
+<p class="text-default">{{ textInput }}</p>
+
+<app-button [buttonText]="'Cancelar'" [buttonType]="'btn-danger'" (click)="destroyComponent()"></app-button>
+<app-button [buttonText]="'Salvar'"  [buttonType]="'btn-success'"></app-button>
+<app-button [buttonText]="'Teste'"  [buttonType]="'btn-default'" (click)="increment()"></app-button>
+<app-button [buttonText]="'Clique aqui'"  [buttonType]="'btn-primary'" (clickOutput)="clicouNoFilho($event)"></app-button>
+
+<app-life-cycle [number]="numberIncrement" *ngIf="!destroy"></app-life-cycle>

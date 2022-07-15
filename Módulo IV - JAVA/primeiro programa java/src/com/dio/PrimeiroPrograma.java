@@ -14,7 +14,11 @@ public class PrimeiroPrograma {
 		int a = 2;
 		int b = 3;
 		System.out.println("Hello Wordl!" + (a + b));
+<<<<<<< HEAD
 
+=======
+		int soma = (a + b) / 2;
+>>>>>>> bd3c780b35a80806252128a37efde6dc694b47e5
 	}
 
 }

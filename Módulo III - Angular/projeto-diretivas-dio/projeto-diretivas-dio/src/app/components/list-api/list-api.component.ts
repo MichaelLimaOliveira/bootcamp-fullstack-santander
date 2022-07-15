@@ -17,7 +17,7 @@ export class ListApiComponent implements OnInit {
   getList() {
     this.listService.getList().subscribe(result => {
       this.persons = result?.results;
-    })
-  }
+    }
+    )}
 
 }

@@ -11,6 +11,5 @@ public class PirmeiroPrograma {
 
         Gato gato = new Gato();
         System.out.println(gato);
-
     }
 }

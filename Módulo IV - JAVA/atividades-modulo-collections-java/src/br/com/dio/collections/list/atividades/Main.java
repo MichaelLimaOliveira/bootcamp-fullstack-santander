@@ -1,7 +1,6 @@
 package br.com.dio.collections.list.atividades;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -14,7 +13,19 @@ public class Main {
             add(new Month("Maio", 19.3d));
             add(new Month("Junho", 14.2d));
         }};
+        double sum = 0d;
+        for(int i = 0; i < months.size(); i++) {
+            Month month = months.get(i);
+            sum += month.getTemperature();
+        }
+        double avarege = Math.round(sum / months.size());
+        System.out.println("A media semestral é: " + avarege);
+        System.out.println("Messes que tiveram temperaturas acima da media semestral: ");
 
-        double averageTemperatureMonths = Collections.
+        for (Month month : months) {
+            if(month.getTemperature() > avarege ) System.out.println(month.getMonthName() + " ");
+        }
+        System.out.println();
+
     }
 }

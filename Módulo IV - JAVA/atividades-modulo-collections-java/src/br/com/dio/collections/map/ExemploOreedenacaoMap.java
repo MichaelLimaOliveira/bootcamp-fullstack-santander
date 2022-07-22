@@ -35,7 +35,12 @@ public class ExemploOreedenacaoMap {
 
         System.out.println("--------------Ordem alfabetica dos livros----------------");
 
-        Set<Map.Entry<String, Books>> booksSetOrder = new TreeSet<>(new ComparatorName());
+        Set<Map.Entry<String, Books>> booksSetOrder = new TreeSet<>(new Comparator<Map.Entry<String, Books>>() {
+            @Override
+            public int compare(Map.Entry<String, Books> o1, Map.Entry<String, Books> o2) {
+                return o1.getValue().getName().compareToIgnoreCase(o2.getValue().getName());
+            }
+        });
         booksSetOrder.addAll(booksHashMap.entrySet());
 
         for (Map.Entry<String, Books> book : booksSetOrder) {
@@ -43,7 +48,8 @@ public class ExemploOreedenacaoMap {
         }
 
         System.out.println("-------------Ordem crescente de paginas--------------");
-        Set<Map.Entry<String, Books>> booksSetOrderPages = new TreeSet<>(new ComparatorPages());
+        Set<Map.Entry<String, Books>> booksSetOrderPages = new TreeSet<>(Comparator.comparing(
+                book -> book.getValue().getPages()));
         booksSetOrderPages.addAll(booksHashMap.entrySet());
 
         for (Map.Entry<String, Books> book : booksSetOrderPages) {
@@ -97,23 +103,5 @@ class Books {
                 "name='" + name + '\'' +
                 ", pages=" + pages +
                 '}';
-    }
-}
-
-class ComparatorName implements Comparator<Map.Entry<String, Books>>{
-
-    @Override
-    public int compare(Map.Entry<String, Books> book1, Map.Entry<String, Books> book2) {
-
-
-        return book1.getValue().getName().compareToIgnoreCase(book2.getValue().getName());
-    }
-}
-
-class ComparatorPages implements Comparator<Map.Entry<String, Books>> {
-
-    @Override
-    public int compare(Map.Entry<String, Books> b1, Map.Entry<String, Books> b2) {
-        return b1.getValue().getPages().compareTo(b2.getValue().getPages());
     }
 }

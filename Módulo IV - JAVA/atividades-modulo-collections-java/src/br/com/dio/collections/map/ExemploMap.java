@@ -82,8 +82,8 @@ public class ExemploMap {
         System.out.println(sum2);
 
         System.out.println("exiba a media dos consumos:");
-        Double average = sum/cars.size();
-        System.out.println(average);
+       /* Double average = sum/cars.size();
+        System.out.println(average);*/
 
         System.out.println("remova os carros com consumo 15.6");
         System.out.println(cars);

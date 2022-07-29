@@ -24,5 +24,5 @@ public class AppController {
         return "A sequinte variável de ambiente foi passada: " + dbEnvironmentVariable;
     }
 
-    
+
 }

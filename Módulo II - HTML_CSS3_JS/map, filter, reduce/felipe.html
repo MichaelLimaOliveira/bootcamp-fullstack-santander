@@ -1,0 +1,31 @@
+<!doctype html>
+    <html lang="pt-BR">
+      <head>
+      <meta charset="utf-8">
+      <title>Incorporando Javascript em Páginas HTML</title>
+      </head>
+
+      <body>
+       <div>
+          <div>
+            <input type="number" id="numero_1" value="n1"></input>
+            <input type="number" id="numero_2" value="n2"></input>
+          </div>
+          <div>
+          <input type="radio" name="calculo" value="mult">Multiplicação
+          <input type="radio" name="calculo" value="div">divisão
+          </div>
+          <div>
+            <input type="radio" name="calculo" value="som">soma
+            <input type="radio" name="calculo" value="sub">subtração
+          </div>
+
+            <input type="button"  onclick = calcular() value="calcular">
+
+           <div id="exibe_resultado"> 
+            Resultado do Calculo: 
+          </div>
+     </body>
+
+<script src="main.js"></script>
+    </html>

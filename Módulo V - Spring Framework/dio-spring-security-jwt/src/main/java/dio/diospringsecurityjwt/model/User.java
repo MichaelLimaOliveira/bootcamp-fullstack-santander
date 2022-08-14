@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "id_table")
+@Table(name = "tab_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,8 @@ public class User {
     @Column(length = 100, nullable = false)
     private String password;
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "tab_user_roles", joinColumns = @JoinColumn(name = "user_name"))
+    @CollectionTable(name = "tab_user_roles", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "role_id")
     private List<String> roles = new ArrayList<>();
 
     public Integer getId() {
